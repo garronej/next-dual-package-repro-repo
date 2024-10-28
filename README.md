@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Context
 
-First, run the development server:
+This is a repo to confirm that Next does indeed apply the "development" condition to `@emotion/react` when running in development mode.  
+
+See [this repo for reference](https://github.com/garronej/vike-dual-package-repo-repo).  
+
+The interesting part is in [src/app/page.tsx](src/app/page.tsx).
+
+![image](https://github.com/user-attachments/assets/a9b395b1-06a1-4d2e-abe7-ee5a40cf922c)  
+
+<img width="1513" alt="image" src="https://github.com/user-attachments/assets/67040026-b4de-4a54-8a3b-a9653876c6a4">  
+
+## Step to reproduce
 
 ```bash
-npm run dev
-# or
+git clone https://github.com/garronej/next-dual-package-repo-repo
+cd next-dual-package-repo-repo
+yarn install
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to `http://localhost:3000/` and open the console.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+There is no error. Everything is working as expected.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Debug help
 
-## Learn More
+To track what condition are used to import `@emotion/react` you can run:  
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx patch-package
+yarn dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
